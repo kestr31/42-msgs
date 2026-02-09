@@ -50,7 +50,7 @@ sim42_msgs/
 │   ├── GetSimStatus.srv
 │   ├── SetSimState.srv
 │   └── ResetConnection.srv
-└── docs/msgs/              # Per-message documentation
+└── docs/              # Per-message documentation
     ├── index.md
     └── *.md
 ```
@@ -120,4 +120,4 @@ Build this package **before** sim42_bridge, which depends on it.
 
 ## Documentation
 
-See [docs/msgs/index.md](docs/msgs/index.md) for detailed per-message documentation.
+See [docs/index.md](docs/index.md) for detailed per-message documentation.

@@ -23,10 +23,10 @@ float64[] ang_rate   # Flattened [Ng x 3]: joint angle rates [rad/s]
 |-------|------|------|-------------|
 | `stamp` | `builtin_interfaces/Time` | | ROS2 timestamp |
 | `num_joints` | `uint32` | | Number of joints (`Ng = Nb - 1`) |
-| `pos` | `float64[]` | m | Joint translational positions, flattened `[Ng x 3]` |
-| `pos_rate` | `float64[]` | m/s | Joint translational position rates, flattened `[Ng x 3]` |
-| `ang` | `float64[]` | rad | Joint rotational angles, flattened `[Ng x 3]` |
-| `ang_rate` | `float64[]` | rad/s | Joint rotational angle rates, flattened `[Ng x 3]` |
+| `pos` | `float64[]` | m | Joint translational displacements along joint DOF axes. Flattened `[Ng x 3]` |
+| `pos_rate` | `float64[]` | m/s | Joint translational rates along joint DOF axes. Flattened `[Ng x 3]` |
+| `ang` | `float64[]` | rad | Joint Euler angles about gimbal axes. Flattened `[Ng x 3]` |
+| `ang_rate` | `float64[]` | rad/s | Joint Euler angle rates about gimbal axes. Flattened `[Ng x 3]` |
 
 ## Notes
 

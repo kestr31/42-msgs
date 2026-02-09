@@ -2,11 +2,11 @@
 
 Reaction wheel torque commands.
 
-**Status:** Future (requires AcIPC binary protocol).
+**Status:** Available via `StateOverride.whl_tcmd` (text IPC). Also defined as standalone message for future direct-command support.
 
 ## 42 Source
 
-`Whl[k].Tcmd`
+`AC.Whl[k].Tcmd`
 
 ## Definition
 
@@ -20,4 +20,4 @@ float64[] tcmd   # Wheel torque command [Nm] for each wheel
 | Field | Type | Unit | Description |
 |-------|------|------|-------------|
 | `stamp` | `builtin_interfaces/Time` | | ROS2 timestamp |
-| `tcmd` | `float64[]` | Nm | Torque command for each wheel. Array length equals number of wheels (`Nw`) |
+| `tcmd` | `float64[]` | Nm | Torque command per wheel, along each wheel's spin axis (axis defined by mounting geometry in **B** frame). Array length = `Nw` |

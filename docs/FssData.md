@@ -18,4 +18,4 @@ float64[2] sun_ang   # Sun angles [rad]: horizontal, vertical
 | Field | Type | Unit | Description |
 |-------|------|------|-------------|
 | `valid` | `bool` | | Whether the sensor has a valid reading (sun in FOV) |
-| `sun_ang` | `float64[2]` | rad | Sun angles `[horizontal, vertical]` in the sensor frame |
+| `sun_ang` | `float64[2]` | rad | Sun angles `[horizontal, vertical]` in the sensor **S** frame (atan2 of sun vector components relative to sensor boresight). Sensor frame is defined by mounting geometry in **B** frame |

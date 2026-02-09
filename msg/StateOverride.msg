@@ -27,6 +27,10 @@ float64[3] hvb       # Total angular momentum in body frame [Nms]
 bool whl_h_valid
 float64[] whl_h      # Wheel angular momentum [Nms]
 
+# Wheel torque command overrides (variable-length)
+bool whl_tcmd_valid
+float64[] whl_tcmd   # Wheel torque commands [Nm]
+
 # Joint position overrides (variable-length, flattened Ng x 3)
 bool joint_pos_valid
 float64[] joint_pos  # Joint positions (flattened [Ng x 3])

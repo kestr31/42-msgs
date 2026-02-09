@@ -20,4 +20,4 @@ float64[] pulse_width   # Thruster pulse width [s] for each thruster
 | Field | Type | Unit | Description |
 |-------|------|------|-------------|
 | `stamp` | `builtin_interfaces/Time` | | ROS2 timestamp |
-| `pulse_width` | `float64[]` | s | Pulse width command for each thruster. Array length equals number of thrusters (`Nthr`) |
+| `pulse_width` | `float64[]` | s | Pulse width command per thruster. Thrust direction defined by mounting geometry in **B** frame. Array length = `Nthr` |

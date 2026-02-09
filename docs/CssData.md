@@ -18,4 +18,4 @@ float64 illum   # Illumination level
 | Field | Type | Unit | Description |
 |-------|------|------|-------------|
 | `valid` | `bool` | | Whether the sensor has a valid reading (sun in FOV) |
-| `illum` | `float64` | | Illumination level (0.0 = no sun, 1.0 = full illumination) |
+| `illum` | `float64` | | Illumination level, proportional to cosine of angle between sun direction and sensor normal (defined by mounting geometry in **B** frame). Range 0.0 -- 1.0 |

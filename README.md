@@ -13,4 +13,4 @@ colcon build --packages-select sim42_msgs
 
 ## Documentation
 
-See [docs/msgs/index.md](docs/msgs/index.md) for per-message documentation.
+See [docs/index.md](docs/index.md) for per-message documentation.

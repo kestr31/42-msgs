@@ -18,4 +18,4 @@ float64[] field   # Magnetic field [Tesla] per magnetometer axis
 | Field | Type | Unit | Description |
 |-------|------|------|-------------|
 | `stamp` | `builtin_interfaces/Time` | | ROS2 timestamp |
-| `field` | `float64[]` | T | Magnetic field per magnetometer axis. Array length equals number of magnetometers (`Nmag`) |
+| `field` | `float64[]` | T | Projection of magnetic field vector (in **B** frame) onto each magnetometer's measurement axis (axis defined by mounting geometry in **B** frame). Array length = `Nmag` |

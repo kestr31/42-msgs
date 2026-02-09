@@ -20,6 +20,6 @@ float64[3] hvb   # Total angular momentum in body frame [Nms]
 | Field | Type | Unit | Description |
 |-------|------|------|-------------|
 | `stamp` | `builtin_interfaces/Time` | | ROS2 timestamp |
-| `svb` | `float64[3]` | | Unit sun vector in body frame (points from SC toward Sun) |
-| `bvb` | `float64[3]` | T | Magnetic field vector in body frame |
-| `hvb` | `float64[3]` | Nms | Total angular momentum vector in body frame |
+| `svb` | `float64[3]` | | Unit vector from SC toward Sun, expressed in **B** frame |
+| `bvb` | `float64[3]` | T | Magnetic field vector, expressed in **B** frame |
+| `hvb` | `float64[3]` | Nms | Total angular momentum (rigid bodies + wheels), expressed in **B** frame |

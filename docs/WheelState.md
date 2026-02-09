@@ -18,4 +18,4 @@ float64[] h   # Wheel angular momentum [Nms] for each wheel
 | Field | Type | Unit | Description |
 |-------|------|------|-------------|
 | `stamp` | `builtin_interfaces/Time` | | ROS2 timestamp |
-| `h` | `float64[]` | Nms | Angular momentum for each wheel. Array length equals number of wheels (`Nw`) |
+| `h` | `float64[]` | Nms | Scalar angular momentum per wheel, along each wheel's spin axis (axis direction defined by mounting geometry in SC config). Array length = `Nw` |

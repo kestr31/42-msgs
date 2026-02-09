@@ -4,7 +4,7 @@ Full state override message sent to 42 via the RX channel. Each field has a corr
 
 ## 42 Source
 
-RX variables: `SC[i].qn`, `SC[i].wn`, `SC[i].PosR`, `SC[i].VelR`, `SC[i].svb`, `SC[i].bvb`, `SC[i].Hvb`, `SC[i].Whl[k].H`, `SC[i].G[k].Pos`
+RX variables: `SC[i].qn`, `SC[i].wn`, `SC[i].PosR`, `SC[i].VelR`, `SC[i].svb`, `SC[i].bvb`, `SC[i].Hvb`, `SC[i].Whl[k].H`, `SC[i].AC.Whl[k].Tcmd`, `SC[i].G[k].Pos`
 
 ## Definition
 
@@ -35,6 +35,9 @@ float64[3] hvb           # Total angular momentum in body frame [Nms]
 bool       whl_h_valid
 float64[]  whl_h         # Wheel angular momentum [Nms]
 
+bool       whl_tcmd_valid
+float64[]  whl_tcmd      # Wheel torque commands [Nm]
+
 bool       joint_pos_valid
 float64[]  joint_pos     # Joint positions (flattened [Ng x 3])
 ```
@@ -45,23 +48,25 @@ float64[]  joint_pos     # Joint positions (flattened [Ng x 3])
 |-------|------|------|-------------|
 | `stamp` | `builtin_interfaces/Time` | | ROS2 timestamp |
 | `qn_valid` | `bool` | | Enable quaternion override |
-| `qn` | `float64[4]` | | Attitude quaternion `[x, y, z, scalar]` |
+| `qn` | `float64[4]` | | Rotation from **N** to **B** frame. `[x, y, z, scalar]` |
 | `wn_valid` | `bool` | | Enable angular velocity override |
-| `wn` | `float64[3]` | rad/s | Angular velocity |
+| `wn` | `float64[3]` | rad/s | Angular velocity of **B** w.r.t. **N**, expressed in **B** frame |
 | `pos_r_valid` | `bool` | | Enable relative position override |
-| `pos_r` | `float64[3]` | m | Position relative to reference orbit |
+| `pos_r` | `float64[3]` | m | Position of SC relative to reference orbit origin, expressed in **N** frame |
 | `vel_r_valid` | `bool` | | Enable relative velocity override |
-| `vel_r` | `float64[3]` | m/s | Velocity relative to reference orbit |
+| `vel_r` | `float64[3]` | m/s | Velocity of SC relative to reference orbit origin, expressed in **N** frame |
 | `svb_valid` | `bool` | | Enable sun vector override |
-| `svb` | `float64[3]` | | Sun vector in body frame |
+| `svb` | `float64[3]` | | Unit sun vector, expressed in **B** frame |
 | `bvb_valid` | `bool` | | Enable magnetic field override |
-| `bvb` | `float64[3]` | T | Magnetic field in body frame |
+| `bvb` | `float64[3]` | T | Magnetic field vector, expressed in **B** frame |
 | `hvb_valid` | `bool` | | Enable angular momentum override |
-| `hvb` | `float64[3]` | Nms | Total angular momentum in body frame |
+| `hvb` | `float64[3]` | Nms | Total angular momentum, expressed in **B** frame |
 | `whl_h_valid` | `bool` | | Enable wheel momentum override |
-| `whl_h` | `float64[]` | Nms | Wheel angular momentum per wheel |
+| `whl_h` | `float64[]` | Nms | Scalar angular momentum per wheel, along each wheel's spin axis |
+| `whl_tcmd_valid` | `bool` | | Enable wheel torque command |
+| `whl_tcmd` | `float64[]` | Nm | Torque command per wheel, along each wheel's spin axis. Sets `AC.Whl[k].Tcmd` in 42 |
 | `joint_pos_valid` | `bool` | | Enable joint position override |
-| `joint_pos` | `float64[]` | m | Joint positions, flattened `[Ng x 3]` |
+| `joint_pos` | `float64[]` | m | Joint positions along joint DOF axes, flattened `[Ng x 3]` |
 
 ## Notes
 

@@ -4,6 +4,22 @@ Custom ROS2 message types for the sim42_bridge, mapping NASA 42 simulator state 
 
 All messages use the 42 TXRX text protocol unless noted otherwise. Quaternions follow the `[x, y, z, scalar]` convention throughout.
 
+## Reference Frames
+
+42 uses several coordinate frames. Every vector and quaternion in these messages is defined in one of:
+
+| Frame | Name | Definition |
+|-------|------|------------|
+| **N** | Inertial | J2000 Earth-Centered Inertial (ECI). Origin at central body center. |
+| **B** | Body | Spacecraft body 0 frame. Origin at body 0 geometric origin. |
+| **L** | LVLH | Local Vertical Local Horizontal. x=velocity, y=orbit-normal, z=nadir. |
+| **W** | World-fixed | Planet-fixed rotating frame (ECEF for Earth). |
+| **S** | Sensor | Individual sensor measurement frame, defined by mounting geometry in body frame. |
+
+Quaternions represent rotation **from** the first frame **to** the second: `qn` = rotation N -> B (or N -> S for star trackers).
+
+Sensor scalars (gyro rate, magnetometer field, accelerometer) are projections of 3D body-frame vectors onto each sensor's measurement axis. The axis direction is defined by the sensor mounting geometry in the spacecraft configuration file.
+
 ## Telemetry (42 -> ROS2)
 
 ### Time
@@ -54,10 +70,10 @@ All messages use the 42 TXRX text protocol unless noted otherwise. Quaternions f
 | [StateOverride](StateOverride.md) | `SC[i].*` (RX) | Selective override of attitude, orbit, environment, wheels, joints via validity flags |
 | [JointCommand](JointCommand.md) | `SC[i].G[k].Pos` | Single-joint position command |
 
-### Actuator Commands (future -- requires AcIPC binary protocol)
+### Actuator Commands
 
 | Message | 42 Source | Description |
 |---------|-----------|-------------|
-| [WheelCommand](WheelCommand.md) | `Whl[k].Tcmd` | Reaction wheel torque commands |
-| [MtbCommand](MtbCommand.md) | `MTB[k].Mcmd` | Magnetic torque bar moment commands |
-| [ThrusterCommand](ThrusterCommand.md) | `Thr[k]` | Thruster pulse width commands |
+| [WheelCommand](WheelCommand.md) | `AC.Whl[k].Tcmd` | Reaction wheel torque commands (available via `StateOverride.whl_tcmd`) |
+| [MtbCommand](MtbCommand.md) | `MTB[k].Mcmd` | Magnetic torque bar moment commands (future -- requires AcIPC) |
+| [ThrusterCommand](ThrusterCommand.md) | `Thr[k]` | Thruster pulse width commands (future -- requires AcIPC) |

@@ -21,10 +21,10 @@ float64[3] orb_veln # Reference orbit velocity in N frame [m/s]
 | Field | Type | Unit | Description |
 |-------|------|------|-------------|
 | `stamp` | `builtin_interfaces/Time` | | ROS2 timestamp |
-| `pos_r` | `float64[3]` | m | Position of SC relative to its reference orbit, in inertial N frame |
-| `vel_r` | `float64[3]` | m/s | Velocity of SC relative to its reference orbit, in inertial N frame |
-| `orb_posn` | `float64[3]` | m | Absolute position of the reference orbit in inertial N frame |
-| `orb_veln` | `float64[3]` | m/s | Absolute velocity of the reference orbit in inertial N frame |
+| `pos_r` | `float64[3]` | m | Position of SC center of mass relative to reference orbit origin, expressed in **N** frame |
+| `vel_r` | `float64[3]` | m/s | Velocity of SC center of mass relative to reference orbit origin, expressed in **N** frame |
+| `orb_posn` | `float64[3]` | m | Absolute position of reference orbit origin relative to central body center, expressed in **N** frame |
+| `orb_veln` | `float64[3]` | m/s | Absolute velocity of reference orbit origin, expressed in **N** frame |
 
 ## Notes
 

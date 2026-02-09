@@ -29,7 +29,7 @@ float64[3] vel_w      # Velocity in W (ECEF) frame [m/s]
 | `rollover` | `int64` | | GPS week rollover counter |
 | `week` | `int64` | | GPS week number |
 | `sec` | `float64` | s | Seconds within the current GPS week |
-| `pos_n` | `float64[3]` | m | Position in inertial N frame |
-| `vel_n` | `float64[3]` | m/s | Velocity in inertial N frame |
-| `pos_w` | `float64[3]` | m | Position in ECEF (W) frame |
-| `vel_w` | `float64[3]` | m/s | Velocity in ECEF (W) frame |
+| `pos_n` | `float64[3]` | m | Position relative to central body center, expressed in inertial **N** frame (includes noise) |
+| `vel_n` | `float64[3]` | m/s | Velocity relative to central body center, expressed in inertial **N** frame (includes noise) |
+| `pos_w` | `float64[3]` | m | Position relative to central body center, expressed in world-fixed **W** frame (ECEF for Earth; includes noise) |
+| `vel_w` | `float64[3]` | m/s | Velocity relative to central body center, expressed in world-fixed **W** frame (ECEF for Earth; includes noise) |

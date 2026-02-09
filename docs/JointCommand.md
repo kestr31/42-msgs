@@ -20,4 +20,4 @@ float64[3] pos   # Desired joint position [3-DOF]
 |-------|------|------|-------------|
 | `stamp` | `builtin_interfaces/Time` | | ROS2 timestamp |
 | `joint_index` | `uint32` | | Index of the target joint (`0` to `Ng-1`) |
-| `pos` | `float64[3]` | m | Desired 3-DOF joint position |
+| `pos` | `float64[3]` | m | Desired 3-DOF joint translational position along joint DOF axes |

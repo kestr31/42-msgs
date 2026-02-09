@@ -18,4 +18,4 @@ float64[4] qn   # Attitude quaternion [x, y, z, scalar]
 | Field | Type | Unit | Description |
 |-------|------|------|-------------|
 | `valid` | `bool` | | Whether the tracker has a valid solution (not blocked by sun/earth/moon) |
-| `qn` | `float64[4]` | | Measured attitude quaternion `[x, y, z, scalar]` |
+| `qn` | `float64[4]` | | Measured quaternion: rotation from inertial **N** to star tracker sensor **S** frame (includes measurement noise). `[x, y, z, scalar]` |

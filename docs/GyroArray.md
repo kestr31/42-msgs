@@ -18,4 +18,4 @@ float64[] true_rate   # True angular rate [rad/s] per gyro axis
 | Field | Type | Unit | Description |
 |-------|------|------|-------------|
 | `stamp` | `builtin_interfaces/Time` | | ROS2 timestamp |
-| `true_rate` | `float64[]` | rad/s | True angular rate per gyro axis. Array length equals number of gyros (`Ngyro`) |
+| `true_rate` | `float64[]` | rad/s | Projection of body angular velocity (**B** w.r.t. **N**) onto each gyro's measurement axis (axis defined by mounting geometry in **B** frame). Array length = `Ngyro` |
