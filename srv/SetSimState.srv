@@ -1,0 +1,5 @@
+# One-shot state override (queued for next RX cycle)
+sim42_msgs/StateOverride override
+---
+bool success
+string message

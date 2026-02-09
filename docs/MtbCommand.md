@@ -1,0 +1,23 @@
+# MtbCommand
+
+Magnetic torque bar (MTB) moment commands.
+
+**Status:** Future (requires AcIPC binary protocol).
+
+## 42 Source
+
+`MTB[k].Mcmd`
+
+## Definition
+
+```
+builtin_interfaces/Time stamp
+float64[] mcmd   # MTB magnetic moment command [Am^2] for each MTB
+```
+
+## Fields
+
+| Field | Type | Unit | Description |
+|-------|------|------|-------------|
+| `stamp` | `builtin_interfaces/Time` | | ROS2 timestamp |
+| `mcmd` | `float64[]` | Am^2 | Magnetic dipole moment command for each MTB. Array length equals number of MTBs (`Nmtb`) |

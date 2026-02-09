@@ -1,0 +1,10 @@
+# Query bridge connection and simulation status
+---
+bool connected
+string host
+int64 port
+int64 sc_index
+string sync_mode
+float64 sim_time_sec
+int64 messages_received
+int64 messages_sent

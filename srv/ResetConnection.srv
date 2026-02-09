@@ -1,0 +1,4 @@
+# Force socket reconnect
+---
+bool success
+string message
