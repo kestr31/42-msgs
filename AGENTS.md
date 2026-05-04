@@ -1,0 +1,23 @@
+- Commit related rules
+  - When modifying architecture/code in this project, plan first and notify the user
+  - Do NOT include `Co-Authored-By` lines in commit messages
+  - Use conventional commit format: `type(scope): description`
+  - Make commit message broken into a subject line + body with one change per bullet point.
+- Technical stack related rules
+  - Use ROS2 Jazzy(C++)
+  - When using python, you must use `uv` for environment setup and execution.
+  - Minimize modifying 42 simulator source code directly to ensure compatibility with the original simulator.
+- ROS2 and message related rules
+  - ROS2 related rules
+    - Build system: ament_cmake / rosidl
+    - Make all topics to be placed under `/sc*/sim42_bridge/` namespace
+    - `source /opt/ros/jazzy/setup.bash` (bash) or `source /opt/ros/jazzy/setup.zsh` (zsh)
+  - Message related rules
+    - Conventions for quaternion is: [x, y, z, scalar]
+    - Array sensor messages (CssArray, FssArray, StarTrackerArray) contain sub-messages (CssData, FssData, StarTrackerData) as elements
+    - Variable-length arrays (wheels, gyros, etc.) use `float64[]`. Fixed-size vectors use `float64[N]`
+    - Flattened multi-DOF arrays (JointState42, BodyState) document their layout as `[count x DOF]`
+- Development related rules
+  - NEVER, EVER try to workaround the issue/error found.
+  - Never try to get-away from the issue by: modifying the test to forcefully match the expected result or hardcoding everything.
+  - Always report the issue/error to the user.

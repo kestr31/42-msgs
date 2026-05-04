@@ -8,3 +8,9 @@ string sync_mode
 float64 sim_time_sec
 int64 messages_received
 int64 messages_sent
+# Parallel arrays of bridge diagnostics counters. counter_names[i]
+# is the label for counter_values[i]. Producer must keep sizes equal.
+# Currently exposes per-actuator overwrite counters (B1) and the
+# RX message overflow counter (A2).
+string[] counter_names
+uint64[] counter_values
