@@ -39,4 +39,28 @@ rosidl_generate_interfaces(${PROJECT_NAME}
   DEPENDENCIES std_msgs builtin_interfaces
 )
 
+find_package(Doxygen QUIET)
+if(DOXYGEN_FOUND)
+  set(DOXYFILE_IN ${CMAKE_CURRENT_SOURCE_DIR}/doxygen/Doxyfile.in)
+  set(DOXYFILE_OUT ${CMAKE_CURRENT_BINARY_DIR}/Doxyfile)
+  configure_file(${DOXYFILE_IN} ${DOXYFILE_OUT} @ONLY)
+  add_custom_target(doc
+    COMMAND ${DOXYGEN_EXECUTABLE} ${DOXYFILE_OUT}
+    WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
+    COMMENT "Generating sim42_msgs documentation with Doxygen"
+    VERBATIM
+  )
+  find_program(LATEXMK latexmk)
+  if(LATEXMK)
+    add_custom_target(doc-pdf
+      COMMAND ${DOXYGEN_EXECUTABLE} ${DOXYFILE_OUT}
+      COMMAND ${CMAKE_COMMAND} -E chdir ${CMAKE_CURRENT_BINARY_DIR}/doc_output/latex
+              ${LATEXMK} -pdf -interaction=nonstopmode refman.tex
+      WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
+      COMMENT "Generating sim42_msgs PDF documentation"
+      VERBATIM
+    )
+  endif()
+endif()
+
 ament_package()

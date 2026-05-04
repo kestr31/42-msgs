@@ -1,0 +1,79 @@
+# Doxyfile for sim42_msgs
+# Generated documentation for ROS2 message and service definitions.
+# CMake substitutes @CMAKE_CURRENT_SOURCE_DIR@ and @CMAKE_CURRENT_BINARY_DIR@.
+
+PROJECT_NAME           = "sim42_msgs"
+PROJECT_NUMBER         = "0.1.0"
+PROJECT_BRIEF          = "ROS2 message definitions for the NASA 42 spacecraft simulator bridge"
+
+# Input: .msg, .srv, and .dox files
+INPUT                  = @CMAKE_CURRENT_SOURCE_DIR@/msg \
+                         @CMAKE_CURRENT_SOURCE_DIR@/srv \
+                         @CMAKE_CURRENT_SOURCE_DIR@/doxygen/mainpage.dox \
+                         @CMAKE_CURRENT_SOURCE_DIR@/doxygen/groups.dox
+FILE_PATTERNS          = *.msg *.srv *.dox
+RECURSIVE              = NO
+
+# Treat .msg and .srv as C++ after filtering
+EXTENSION_MAPPING      = msg=C++ srv=C++
+FILTER_PATTERNS        = *.msg="uv run --script @CMAKE_CURRENT_SOURCE_DIR@/doxygen/msg_filter.py" \
+                         *.srv="uv run --script @CMAKE_CURRENT_SOURCE_DIR@/doxygen/msg_filter.py"
+
+# Output
+OUTPUT_DIRECTORY       = @CMAKE_CURRENT_BINARY_DIR@/doc_output
+GENERATE_HTML          = YES
+GENERATE_LATEX         = YES
+GENERATE_XML           = NO
+
+# LaTeX / PDF settings
+LATEX_OUTPUT           = latex
+LATEX_CMD_NAME         = latex
+USE_PDFLATEX           = YES
+PDF_HYPERLINKS         = YES
+COMPACT_LATEX          = YES
+
+# Extraction
+EXTRACT_ALL            = YES
+EXTRACT_PRIVATE        = NO
+EXTRACT_STATIC         = YES
+
+# Suppress redundant pages -- keep only main page, groups, and struct docs
+SOURCE_BROWSER         = NO
+SHOW_FILES             = NO
+SHOW_NAMESPACES        = NO
+SHOW_USED_FILES        = NO
+ALPHABETICAL_INDEX     = NO
+SHOW_INCLUDE_FILES     = NO
+
+# Disable all graphs (no inheritance or dependency to visualize)
+HAVE_DOT               = NO
+CLASS_GRAPH            = NO
+COLLABORATION_GRAPH    = NO
+INCLUDE_GRAPH          = NO
+INCLUDED_BY_GRAPH      = NO
+DIRECTORY_GRAPH        = NO
+GRAPHICAL_HIERARCHY    = NO
+
+# Navigation -- custom layout keeps only main page + topics (groups)
+LAYOUT_FILE            = @CMAKE_CURRENT_SOURCE_DIR@/doxygen/DoxygenLayout.xml
+DISABLE_INDEX          = NO
+GENERATE_TREEVIEW      = YES
+FULL_SIDEBAR           = NO
+
+# Display names without namespace prefix
+HIDE_SCOPE_NAMES       = YES
+
+# Grouping
+GROUP_NESTED_COMPOUNDS = YES
+
+# Markdown and linking
+MARKDOWN_SUPPORT       = YES
+AUTOLINK_SUPPORT       = YES
+
+# Warnings
+WARN_IF_UNDOCUMENTED   = NO
+WARN_NO_PARAMDOC       = NO
+
+# HTML appearance
+HTML_COLORSTYLE        = LIGHT
+HTML_DYNAMIC_SECTIONS  = YES

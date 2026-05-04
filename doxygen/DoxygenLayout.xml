@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<doxygenlayout version="1.0">
+  <navindex>
+    <tab type="mainpage" visible="yes" title=""/>
+    <tab type="topics" visible="yes" title="" intro=""/>
+    <tab type="classes" visible="yes" title="">
+      <tab type="classlist" visible="yes" title="" intro=""/>
+    </tab>
+  </navindex>
+
+  <!-- Struct/class page: brief, field declarations, detailed description -->
+  <class>
+    <briefdescription visible="yes"/>
+    <memberdecl>
+      <publicstaticattributes title=""/>
+      <publicattributes title=""/>
+    </memberdecl>
+    <detaileddescription title=""/>
+    <memberdef>
+      <variables title=""/>
+    </memberdef>
+    <allmemberslink visible="no"/>
+    <usedfiles visible="no"/>
+    <authorsection visible="no"/>
+  </class>
+
+  <!-- Group page: brief, subgroups, structs, detailed description -->
+  <group>
+    <briefdescription visible="yes"/>
+    <memberdecl>
+      <nestedgroups visible="yes" title=""/>
+      <classes visible="yes" title=""/>
+    </memberdecl>
+    <detaileddescription title=""/>
+    <authorsection visible="no"/>
+  </group>
+
+  <!-- Unused sections kept minimal -->
+  <namespace>
+    <briefdescription visible="no"/>
+    <authorsection visible="no"/>
+  </namespace>
+
+  <file>
+    <briefdescription visible="no"/>
+    <authorsection visible="no"/>
+  </file>
+
+  <directory>
+    <briefdescription visible="no"/>
+  </directory>
+</doxygenlayout>

@@ -1,0 +1,49 @@
+/**
+ * @defgroup telemetry Telemetry (42 -> ROS2)
+ * @brief Messages carrying state from the 42 simulator to ROS2 topics.
+ */
+
+/**
+ * @defgroup telemetry_time Time
+ * @ingroup telemetry
+ * @brief Simulation clock messages.
+ */
+
+/**
+ * @defgroup telemetry_state Spacecraft State
+ * @ingroup telemetry
+ * @brief Attitude, orbit, environment, and per-body state.
+ */
+
+/**
+ * @defgroup telemetry_sensors Sensors
+ * @ingroup telemetry
+ * @brief Gyroscope, magnetometer, accelerometer, CSS, FSS, star tracker, and GPS.
+ */
+
+/**
+ * @defgroup telemetry_joints Joints
+ * @ingroup telemetry
+ * @brief Multi-DOF joint state for all joints.
+ */
+
+/**
+ * @defgroup telemetry_actuators Actuators (read-only)
+ * @ingroup telemetry
+ * @brief Actuator state telemetry (wheel momentum, etc.).
+ */
+
+/**
+ * @defgroup commands Commands (ROS2 -> 42)
+ * @brief Messages and signals sent from ROS2 to the 42 simulator.
+ */
+
+/**
+ * @defgroup diagnostics Diagnostics
+ * @brief Bridge health and diagnostic messages.
+ */
+
+/**
+ * @defgroup services Services
+ * @brief ROS2 service definitions for bridge control.
+ */

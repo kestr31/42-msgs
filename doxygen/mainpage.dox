@@ -1,0 +1,82 @@
+/**
+ * @mainpage sim42_msgs -- ROS2 Message Definitions for NASA 42 Simulator Bridge
+ *
+ * @section intro Introduction
+ *
+ * This package defines 22 message types and 3 service types that map the
+ * NASA 42 spacecraft simulator's text-based IPC protocol variables to
+ * structured ROS2 types. It contains no runtime code -- only IDL definitions
+ * compiled by @c rosidl_default_generators.
+ *
+ * @section frames Reference Frames
+ *
+ * 42 uses several coordinate frames. Every vector and quaternion in these
+ * messages is defined in one of:
+ *
+ * | Frame | Name | Definition |
+ * |-------|------|------------|
+ * | **N** | Inertial | J2000 Earth-Centered Inertial (ECI). Origin at central body center. |
+ * | **B** | Body | Spacecraft body 0 frame. Origin at body 0 geometric origin. |
+ * | **L** | LVLH | Local Vertical Local Horizontal. x=velocity, y=orbit-normal, z=nadir. |
+ * | **W** | World-fixed | Planet-fixed rotating frame (ECEF for Earth). |
+ * | **S** | Sensor | Individual sensor measurement frame, defined by mounting geometry in body frame. |
+ *
+ * Quaternions represent rotation **from** the first frame **to** the second:
+ * @c qn = rotation N -> B (or N -> S for star trackers).
+ *
+ * Sensor scalars (gyro rate, magnetometer field, accelerometer) are projections
+ * of 3D body-frame vectors onto each sensor's measurement axis. The axis
+ * direction is defined by the sensor mounting geometry in the spacecraft
+ * configuration file.
+ *
+ * @section categories Message Categories
+ *
+ * @subsection cat_telemetry Telemetry (42 -> ROS2)
+ *
+ * - @ref telemetry_time -- Simulation clock
+ * - @ref telemetry_state -- Attitude, orbit, environment, per-body state
+ * - @ref telemetry_sensors -- Gyro, magnetometer, accelerometer, CSS, FSS, star tracker, GPS
+ * - @ref telemetry_joints -- Multi-DOF joint state
+ * - @ref telemetry_actuators -- Wheel momentum (read-only)
+ *
+ * @subsection cat_commands Commands (ROS2 -> 42)
+ *
+ * - @ref commands -- State overrides, joint commands, thruster commands, FSW completion signal
+ *
+ * @subsection cat_diagnostics Diagnostics
+ *
+ * - @ref diagnostics -- Bridge health monitoring
+ *
+ * @subsection cat_services Services
+ *
+ * - @ref services -- Query status, set state, reset connection
+ *
+ * @section conventions Conventions
+ *
+ * - **Quaternion ordering:** @c [x, y, z, scalar] -- matches 42's convention
+ *   and maps directly to ROS2's @c geometry_msgs/Quaternion [x, y, z, w].
+ * - **Variable-length arrays** (wheels, gyros, etc.) use @c float64[].
+ *   Fixed-size vectors use @c float64[N].
+ * - **Flattened multi-DOF arrays** (JointState42, BodyState) document their
+ *   layout as @c [count x DOF].
+ * - **Array sensor messages** (CssArray, FssArray, StarTrackerArray) contain
+ *   sub-messages (CssData, FssData, StarTrackerData) as elements.
+ * - All messages with a timestamp use @c builtin_interfaces/Time @c stamp.
+ *
+ * @section build Build
+ *
+ * @code{.bash}
+ * source /opt/ros/jazzy/setup.bash
+ * colcon build --packages-select sim42_msgs
+ * source install/setup.bash
+ * @endcode
+ *
+ * Build this package **before** sim42_bridge, which depends on it.
+ *
+ * To generate this documentation:
+ *
+ * @code{.bash}
+ * colcon build --packages-select sim42_msgs --cmake-target doc
+ * # Output: build/sim42_msgs/doc_output/html/index.html
+ * @endcode
+ */
