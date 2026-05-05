@@ -11,8 +11,7 @@
 # single atomic message on the wire (no separate topics, no timing issues).
 builtin_interfaces/Time stamp
 
-# Monotonic seq from the publisher (paired with FswDone.override_seq for
-# lockstep handshake; mirrors StateOverride.seq).
+# Monotonic seq from the publisher.
 uint64 seq
 
 # FSW body-frame estimates (used by 42 after MapCmdsToActuators).

@@ -35,7 +35,6 @@ rosidl_generate_interfaces(${PROJECT_NAME}
   "msg/ActuatorCommand.msg"
   "msg/GuidanceCommand.msg"
   "msg/AcCommand.msg"
-  "msg/FswDone.msg"
   "msg/BridgeStatus.msg"
   "srv/GetSimStatus.srv"
   "srv/SetSimState.srv"

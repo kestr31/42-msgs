@@ -9,8 +9,6 @@
 builtin_interfaces/Time stamp
 
 # Monotonic seq from the publisher (0 = unset; older callers omit this).
-# The bridge's wait_for_fsw mode pairs this with FswDone.override_seq to
-# resolve cross-topic delivery races.
 uint64 seq
 
 bool qn_valid

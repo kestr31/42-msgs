@@ -18,6 +18,7 @@
     - Array sensor messages (CssArray, FssArray, StarTrackerArray) contain sub-messages (CssData, FssData, StarTrackerData) as elements
     - Variable-length arrays (wheels, gyros, etc.) use `float64[]`. Fixed-size vectors use `float64[N]`
     - Flattened multi-DOF arrays (JointState42, BodyState) document their layout as `[count x DOF]`
+    - Lockstep implementation must be event driven, not time-driven.
 - Development related rules
   - NEVER, EVER try to workaround the issue/error found.
   - Never try to get-away from the issue by: modifying the test to forcefully match the expected result or hardcoding everything.

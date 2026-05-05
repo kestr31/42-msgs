@@ -46,7 +46,6 @@ GROUP_MAP: dict[str, str] = {
     "StateOverride": "commands",
     "JointCommand": "commands",
     "ThrusterCommand": "commands",
-    "FswDone": "commands",
     "BridgeStatus": "diagnostics",
     "GetSimStatus": "services",
     "SetSimState": "services",
