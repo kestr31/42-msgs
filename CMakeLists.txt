@@ -7,7 +7,6 @@ endif()
 
 find_package(ament_cmake REQUIRED)
 find_package(rosidl_default_generators REQUIRED)
-find_package(std_msgs REQUIRED)
 find_package(builtin_interfaces REQUIRED)
 
 rosidl_generate_interfaces(${PROJECT_NAME}
@@ -36,10 +35,13 @@ rosidl_generate_interfaces(${PROJECT_NAME}
   "msg/GuidanceCommand.msg"
   "msg/AcCommand.msg"
   "msg/BridgeStatus.msg"
+  "msg/WorldState.msg"
+  "msg/CommLinkData.msg"
+  "msg/CommLinkArray.msg"
   "srv/GetSimStatus.srv"
   "srv/SetSimState.srv"
   "srv/ResetConnection.srv"
-  DEPENDENCIES std_msgs builtin_interfaces
+  DEPENDENCIES builtin_interfaces
 )
 
 find_package(Doxygen QUIET)

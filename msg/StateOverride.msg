@@ -38,3 +38,7 @@ float64[3] hvb       # Total angular momentum in body frame [Nms]
 # injection). NOT a torque command — wheel torque travels via AcCommand.
 bool whl_h_valid
 float64[] whl_h      # Wheel angular momentum [Nms]
+
+# CommLink state override (per-link injection)
+bool comm_links_valid
+sim42_msgs/CommLinkData[] comm_links
