@@ -1,3 +1,3 @@
-# SC[i].MAG[k].Field for all magnetometer axes
+# SC[i].MAG[k] array — one entry per magnetometer axis
 builtin_interfaces/Time stamp
-float64[] field   # Magnetic field [Tesla] per magnetometer axis
+sim42_msgs/MagData[] axes
