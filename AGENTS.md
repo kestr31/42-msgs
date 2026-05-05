@@ -3,6 +3,7 @@
   - Do NOT include `Co-Authored-By` lines in commit messages
   - Use conventional commit format: `type(scope): description`
   - Make commit message broken into a subject line + body with one change per bullet point.
+  - You are not allowed to commit unless directed explicitly by the user.
 - Technical stack related rules
   - Use ROS2 Jazzy(C++)
   - When using python, you must use `uv` for environment setup and execution.

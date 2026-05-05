@@ -1,5 +1,11 @@
-# Full state override message sent to 42 via RX
-# Each field has a corresponding _valid flag; only valid fields are sent
+# SC truth-state override sent to 42 via ScIPC RX.
+#
+# This message is the *state injection* channel: setting initial conditions,
+# replaying recorded state, fault injection. It is NOT an actuator command
+# channel — wheel torque, MTB moment, thruster, gimbal commands all travel
+# via AcCommand on AcIPC and have no representation here.
+#
+# Each field has a corresponding _valid flag; only valid fields are sent.
 builtin_interfaces/Time stamp
 
 # Monotonic seq from the publisher (0 = unset; older callers omit this).
@@ -30,18 +36,7 @@ float64[3] bvb       # Magnetic field in body frame [Tesla]
 bool hvb_valid
 float64[3] hvb       # Total angular momentum in body frame [Nms]
 
-# Wheel momentum overrides (variable-length)
+# Wheel angular-momentum state override (initial conditions, fault
+# injection). NOT a torque command — wheel torque travels via AcCommand.
 bool whl_h_valid
 float64[] whl_h      # Wheel angular momentum [Nms]
-
-# Wheel torque command overrides (variable-length)
-bool whl_tcmd_valid
-float64[] whl_tcmd   # Wheel torque commands [Nm]
-
-# MTB magnetic moment command overrides (variable-length)
-bool mtb_mcmd_valid
-float64[] mtb_mcmd   # MTB magnetic moment commands [A-m^2]
-
-# Joint position overrides (variable-length, flattened Ng x 3)
-bool joint_pos_valid
-float64[] joint_pos  # Joint positions (flattened [Ng x 3])
