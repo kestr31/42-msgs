@@ -11,7 +11,7 @@
 - ROS2 and message related rules
   - ROS2 related rules
     - Build system: ament_cmake / rosidl
-    - Make all topics to be placed under `/sc*/sim42_bridge/` namespace
+    - Make all topics to be placed under `/sim42/sc*/` namespace
     - `source /opt/ros/jazzy/setup.bash` (bash) or `source /opt/ros/jazzy/setup.zsh` (zsh)
   - Message related rules
     - Conventions for quaternion is: [x, y, z, scalar]
