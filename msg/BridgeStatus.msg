@@ -35,6 +35,7 @@ bool   ac_handshake_complete
 uint32 ac_reconnect_count
 uint32 ac_ack_mismatch_count
 uint32 ac_recv_timeout_count
+uint32 ac_cmd_wait_timeout_count
 uint64 ac_in_cycles
 uint64 ac_out_cycles
 
@@ -65,4 +66,5 @@ uint8 ERR_AC_DISCONNECT     = 5
 uint8 ERR_AC_ACK_MISMATCH   = 6
 uint8 ERR_AC_HANDSHAKE_FAIL = 7
 uint8 ERR_AC_PARSE_FAIL     = 8
-uint8 ERR_AC_RECV_TIMEOUT   = 9
+uint8 ERR_AC_RECV_TIMEOUT      = 9
+uint8 ERR_AC_CMD_WAIT_TIMEOUT  = 10

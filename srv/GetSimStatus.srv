@@ -4,13 +4,13 @@ bool connected
 string host
 int64 port
 int64 sc_index
-string sync_mode
 float64 sim_time_sec
 int64 messages_received
 int64 messages_sent
 # Parallel arrays of bridge diagnostics counters. counter_names[i]
 # is the label for counter_values[i]. Producer must keep sizes equal.
-# Currently exposes per-actuator overwrite counters (B1) and the
-# RX message overflow counter (A2).
+# Currently exposes: sc_reconnect_count, ac_reconnect_count,
+# rx_overflow_count, ac_recv_timeout_count, ac_messages_received,
+# ac_messages_sent.
 string[] counter_names
 uint64[] counter_values
