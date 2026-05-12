@@ -6,18 +6,16 @@ PROJECT_NAME           = "sim42_msgs"
 PROJECT_NUMBER         = "0.1.0"
 PROJECT_BRIEF          = "ROS2 message definitions for the NASA 42 spacecraft simulator bridge"
 
-# Input: .msg, .srv, and .dox files
+# Input: .msg and .dox files
 INPUT                  = @CMAKE_CURRENT_SOURCE_DIR@/msg \
-                         @CMAKE_CURRENT_SOURCE_DIR@/srv \
                          @CMAKE_CURRENT_SOURCE_DIR@/doxygen/mainpage.dox \
                          @CMAKE_CURRENT_SOURCE_DIR@/doxygen/groups.dox
-FILE_PATTERNS          = *.msg *.srv *.dox
+FILE_PATTERNS          = *.msg *.dox
 RECURSIVE              = NO
 
-# Treat .msg and .srv as C++ after filtering
-EXTENSION_MAPPING      = msg=C++ srv=C++
-FILTER_PATTERNS        = *.msg="uv run --script @CMAKE_CURRENT_SOURCE_DIR@/doxygen/msg_filter.py" \
-                         *.srv="uv run --script @CMAKE_CURRENT_SOURCE_DIR@/doxygen/msg_filter.py"
+# Treat .msg as C++ after filtering
+EXTENSION_MAPPING      = msg=C++
+FILTER_PATTERNS        = *.msg="uv run --script @CMAKE_CURRENT_SOURCE_DIR@/doxygen/msg_filter.py"
 
 # Output
 OUTPUT_DIRECTORY       = @CMAKE_CURRENT_BINARY_DIR@/doc_output

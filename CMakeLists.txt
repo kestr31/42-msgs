@@ -41,9 +41,6 @@ rosidl_generate_interfaces(${PROJECT_NAME}
   "msg/WorldState.msg"
   "msg/CommLinkData.msg"
   "msg/CommLinkArray.msg"
-  "srv/GetSimStatus.srv"
-  "srv/SetSimState.srv"
-  "srv/ResetConnection.srv"
   DEPENDENCIES builtin_interfaces
 )
 

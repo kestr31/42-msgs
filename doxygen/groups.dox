@@ -42,8 +42,3 @@
  * @defgroup diagnostics Diagnostics
  * @brief Bridge health and diagnostic messages.
  */
-
-/**
- * @defgroup services Services
- * @brief ROS2 service definitions for bridge control.
- */

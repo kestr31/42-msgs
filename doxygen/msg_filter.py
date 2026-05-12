@@ -57,9 +57,6 @@ GROUP_MAP: dict[str, str] = {
     "GimbalCommand": "commands",
     "GuidanceCommand": "commands",
     "BridgeStatus": "diagnostics",
-    "GetSimStatus": "services",
-    "SetSimState": "services",
-    "ResetConnection": "services",
 }
 
 FIELD_RE = re.compile(
